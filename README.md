@@ -2,6 +2,10 @@
 
 Node.js implementation of Crypto-Profile-Dot-Link
 
+[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/tnbCrow/Crypto-Profile-Dot-Link.git)
+
+Hosted URL: https://w38piy.deta.dev/
+
 ## Getting Started
 
 Clone the repo.

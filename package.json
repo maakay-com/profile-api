@@ -1,11 +1,11 @@
 {
   "name": "crypto-profile-dot-link",
   "version": "1.0.0",
-  "description": "",
+  "description": "Node.js implementation of Crypto-Profile-Dot-Link",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,5 +14,14 @@
   },
   "dependencies": {
     "express": "^4.17.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tnbCrow/Crypto-Profile-Dot-Link.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/tnbCrow/Crypto-Profile-Dot-Link/issues"
+  },
+  "homepage": "https://github.com/tnbCrow/Crypto-Profile-Dot-Link#readme"
 }

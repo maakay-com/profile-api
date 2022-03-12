@@ -4,7 +4,7 @@ const { users, assets } = require('./data');
 
 
 app.get('/', (req, res) => {
-    res.send("<h1>API Docs</h1><a href='/api/users'>Users</a>")
+    res.send("<h1>API Docs</h1><a href='https://github.com/tnbCrow/Crypto-Profile-Dot-Link#api-endpoints'>Docs</a>")
 })
 
 
@@ -48,3 +48,5 @@ app.post('/api/addresses', (req, res) => {
 app.listen(3000, () => {
     console.log("express listening on port 3000...")
 })
+
+module.exports = app;
