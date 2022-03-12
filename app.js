@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const { users } = require('./data');
+const { users, assets } = require('./data');
 
 
 app.get('/', (req, res) => {
@@ -18,7 +18,30 @@ app.get('/api/users/:username', (req, res) => {
         return res.status(404).json({'detail': 'Not Found'})
     }
 
-    res.json(singleUser)
+    return res.json(singleUser)
+})
+
+
+app.get('/api/assets', (req, res) => {
+    return res.json(assets)
+})
+
+
+app.post('/api/addresses', (req, res) => {
+
+    return res.json({
+        uuid: "d6ef8ce9-d833-416a-82cd-161c0c518510",
+        asset: {
+            uuid: "bbf7a4f5-e78b-4176-aae8-5dad11ec7b95",
+            name: "Bitcoin",
+            symbol: "btc",
+            logo_url: "url_of_logo.com",
+            requires_metadata: false,
+            token_info_url: "coingecko.com"
+        },
+        address: "bitcoin_address",
+        metadata: null
+    })
 })
 
 
