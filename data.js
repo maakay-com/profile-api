@@ -116,4 +116,18 @@ assets = [
     }
 ]
 
-module.exports = { users, assets }
+address = {
+        uuid: "d6ef8ce9-d833-416a-82cd-161c0c518510",
+        asset: {
+            uuid: "bbf7a4f5-e78b-4176-aae8-5dad11ec7b95",
+            name: "Bitcoin",
+            symbol: "btc",
+            logo_url: "url_of_logo.com",
+            requires_metadata: false,
+            token_info_url: "coingecko.com"
+        },
+        address: "bitcoin_address",
+        metadata: null
+    }
+
+module.exports = { users, assets, address }
