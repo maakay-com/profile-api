@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { getAsset } = require('../controllers/asset')
+const { gettoken } = require('../controllers/token')
 
-router.get('/', getAsset)
+router.get('/', gettoken)
 
 module.exports = router;

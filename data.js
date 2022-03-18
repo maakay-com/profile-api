@@ -1,27 +1,80 @@
+
 const users = [
+    {
+        uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
+        account_number: "22d0f0047b572a6acb6615f7aae646b0b96ddc58bfd54ed2775f885baeba3d6a",
+        nonce: "132324"
+    },
+    {
+        uuid: "dc587541-1e60-4841-ae3-8f7de67d5e9f",
+        account_number: "12d0f0047b572a6acb6615f7aae646b0b96ddc58bfd54ed2775f885baeba3d6a",
+        nonce: "456436"
+    }
+]
+
+
+const profile = [
     {
         uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
         username: "hussu010",
         description: "This is hussu's profile everyone",
-        twitter: "hussu010",
-        github: "hussu010",
-        instagram: "hussu010",
+        social_profile: [
+            {
+                social_media: {
+                    title: "Facebook",
+                    logo: "logo_facebook.com",
+                    base_url: "facebook.com"
+                },
+                username: "hussu010"
+            },
+            {
+                social_media: {
+                    title: "Twitter",
+                    logo: "logo_twitter.com",
+                    base_url: "twitter.com"
+                },
+                username: "hussu010"
+            }
+        ],
+        profile_links: [
+            {
+                uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+                title: "Github",
+                url: "github.com"
+            },    
+            {
+                uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+                title: "RandomSite",
+                url: "RandomSite.com"
+            }
+        ],
         avatar_url: "https://url_of_the_avatar.com",
         is_verified: true,
-        is_premium: true,
         addresses: [
             {
-                asset: "btc",
+                token: {
+                    name: "Bitcoin",
+                    symbol: "BTC",
+                    logo_url: "btc_logo.com"
+                },
                 address: "btc_address",
                 metadata: null,
             },
             {
-                asset: "eth",
+                token: {
+                    name: "Ethereum",
+                    symbol: "ETH",
+                    logo_url: "btc_logo.com"
+                },
                 address: "eth_address",
                 metadata: null,
             },
             {
-                asset: "tnbc",
+                token: {
+                    name: "thenewboston",
+                    symbol: "TNBC",
+                    logo_url: "btc_logo.com"
+                },
                 address: "tnbc_address",
                 metadata: "memo",
             },
@@ -29,28 +82,66 @@ const users = [
 
     },
     {
-        uuid: "54507e62-ce3a-4cd2-a84c-3e65ca145844",
+        uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
         username: "random",
-        description: "This is random's profile everyone",
-        twitter: "random",
-        github: "random",
-        instagram: "random",
+        description: "This is hussu's profile everyone",
+        social_profile: [
+            {
+                social_media: {
+                    title: "Facebook",
+                    logo: "logo_facebook.com",
+                    base_url: "facebook.com"
+                },
+                username: "hussu010"
+            },
+            {
+                social_media: {
+                    title: "Twitter",
+                    logo: "logo_twitter.com",
+                    base_url: "twitter.com"
+                },
+                username: "hussu010"
+            }
+        ],
+        profile_links: [
+            {
+                uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+                title: "Github",
+                url: "github.com"
+            },    
+            {
+                uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+                title: "RandomSite",
+                url: "RandomSite.com"
+            }
+        ],
         avatar_url: "https://url_of_the_avatar.com",
-        is_verified: false,
-        is_premium: false,
+        is_verified: true,
         addresses: [
             {
-                asset: "btc",
+                token: {
+                    name: "Bitcoin",
+                    symbol: "BTC",
+                    logo_url: "btc_logo.com"
+                },
                 address: "btc_address",
                 metadata: null,
             },
             {
-                asset: "eth",
+                token: {
+                    name: "Ethereum",
+                    symbol: "ETH",
+                    logo_url: "btc_logo.com"
+                },
                 address: "eth_address",
                 metadata: null,
             },
             {
-                asset: "tnbc",
+                token: {
+                    name: "thenewboston",
+                    symbol: "TNBC",
+                    logo_url: "btc_logo.com"
+                },
                 address: "tnbc_address",
                 metadata: "memo",
             },
@@ -58,28 +149,66 @@ const users = [
 
     },
     {
-        uuid: "bbf7a4f5-e78b-4176-aae8-5dad11ec7b95",
-        username: "randomuser",
-        description: "This is randomuser's profile everyone",
-        twitter: "randomuser",
-        github: "randomuser",
-        instagram: "randomuser",
+        uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
+        username: "random_user",
+        description: "This is hussu's profile everyone",
+        social_profile: [
+            {
+                social_media: {
+                    title: "Facebook",
+                    logo: "logo_facebook.com",
+                    base_url: "facebook.com"
+                },
+                username: "hussu010"
+            },
+            {
+                social_media: {
+                    title: "Twitter",
+                    logo: "logo_twitter.com",
+                    base_url: "twitter.com"
+                },
+                username: "hussu010"
+            }
+        ],
+        profile_links: [
+            {
+                uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+                title: "Github",
+                url: "github.com"
+            },    
+            {
+                uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+                title: "RandomSite",
+                url: "RandomSite.com"
+            }
+        ],
         avatar_url: "https://url_of_the_avatar.com",
-        is_verified: false,
-        is_premium: false,
+        is_verified: true,
         addresses: [
             {
-                asset: "btc",
+                token: {
+                    name: "Bitcoin",
+                    symbol: "BTC",
+                    logo_url: "btc_logo.com"
+                },
                 address: "btc_address",
                 metadata: null,
             },
             {
-                asset: "eth",
+                token: {
+                    name: "Ethereum",
+                    symbol: "ETH",
+                    logo_url: "btc_logo.com"
+                },
                 address: "eth_address",
                 metadata: null,
             },
             {
-                asset: "tnbc",
+                token: {
+                    name: "thenewboston",
+                    symbol: "TNBC",
+                    logo_url: "btc_logo.com"
+                },
                 address: "tnbc_address",
                 metadata: "memo",
             },
@@ -88,8 +217,29 @@ const users = [
     }
 ]
 
+social_profile = [
+    {
+        uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
+        social_media: {
+            title: "Facebook",
+            logo: "logo_facebook.com",
+            base_url: "facebook.com"
+        },
+        username: "hussu010"
+    },
+    {
+        uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
+        social_media: {
+            title: "Twitter",
+            logo: "logo_twitter.com",
+            base_url: "twitter.com"
+        },
+        username: "hussu010"
+    }
+]
 
-assets = [
+
+tokens = [
     {
         uuid: "bbf7a4f5-e78b-4176-aae8-5dad11ec7b95",
         name: "Bitcoin",
@@ -116,9 +266,24 @@ assets = [
     }
 ]
 
-address = {
+
+address = [
+    {
         uuid: "d6ef8ce9-d833-416a-82cd-161c0c518510",
-        asset: {
+        token: {
+            uuid: "833c9458-d364-4a4b-aca5-2e9fd5fb7118",
+            name: "thenewboston",
+            symbol: "tnbc",
+            logo_url: "url_of_logo.com",
+            requires_metadata: true,
+            token_info_url: "official_website.com"
+        },
+        address: "tnbc_address",
+        metadata: "MEMO"
+    },
+    {
+        uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+        token: {
             uuid: "bbf7a4f5-e78b-4176-aae8-5dad11ec7b95",
             name: "Bitcoin",
             symbol: "btc",
@@ -128,6 +293,29 @@ address = {
         },
         address: "bitcoin_address",
         metadata: null
-    }
+    },
+]
 
-module.exports = { users, assets, address }
+
+profile_links = [
+    {
+        uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+        title: "Github",
+        url: "github.com"
+    },    
+    {
+        uuid: "d6ef8de9-d833-416a-82cd-161c0c518510",
+        title: "RandomSite",
+        url: "RandomSite.com"
+    }
+]
+
+
+module.exports = {
+    users,
+    tokens,
+    address,
+    profile,
+    social_profile,
+    profile_links
+}

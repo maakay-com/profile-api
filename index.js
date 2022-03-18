@@ -2,14 +2,20 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan')
 const addressRouter = require('./routes/address');
-const assetRouter = require('./routes/asset');
+const tokenRouter = require('./routes/token');
 const userRouter = require('./routes/user')
+const profileRouter = require('./routes/profile')
+const socialProfileRouter = require('./routes/social_profile')
+const profileLinksRouter = require('./routes/profile_link')
 
 
 app.use(morgan('tiny'))
-app.use('/api/address', addressRouter)
-app.use('/api/assets', assetRouter)
-app.use('/api/users', userRouter)
+app.use('/api/v1/address', addressRouter)
+app.use('/api/v1/token', tokenRouter)
+app.use('/api/v1/users', userRouter)
+app.use('/api/v1/profile', profileRouter)
+app.use('/api/v1/social_profile', socialProfileRouter)
+app.use('/api/v1/profile_link', profileLinksRouter)
 
 
 app.get('/', (req, res) => {

@@ -16,12 +16,18 @@ Run the server: `npm run dev`
 
 ## API Endpoints
 
-`/api/users/:username`: Get public profile of the user.
+`/api/v1/users/:username`: Get account number and nonce assoited with the account number.
 
-`/api/assets`: Get all supported assets.
+`/api/v1/login`: Login using account_number and signature. Returns JWT.
 
-`/api/address`: Add crypto address of the user.
+`/api/v1/tokens`: Get all supported tokens.
 
-`/api/dashboard`: Get private profile of the user.
+`/api/v1/address`: Add crypto address of the user.
+
+`/api/v1/profile/:username`: Get the public profile of the user.
+
+`/api/v1/social_profile`: CRUD all social profiles associated with the user.
+
+`/api/v1/profile_link`: CRUD all links associated with the user.
 
 Happy Coding.

@@ -1,9 +1,10 @@
 const { users } = require('../data')
 
-const getUserProfile = (req, res) => {
-    const { username } = req.params;
+
+const getUser = (req, res) => {
+    const { account_number } = req.params;
     const singleUser = users.find(
-        (user) => user.username === username
+        (user) => user.account_number === account_number
     )
 
     if (!singleUser) {
@@ -13,4 +14,4 @@ const getUserProfile = (req, res) => {
     return res.json(singleUser)
 }
 
-module.exports = { getUserProfile }
+module.exports = { getUser }
