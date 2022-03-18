@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const { getSocialProfile, createSocialProfile, updateSocialProfile, deleteSocialProfile } = require('../controllers/social_profile')
+const {
+    getAllSocialProfile,
+    getSocialProfile,
+    createSocialProfile,
+    updateSocialProfile,
+    deleteSocialProfile
+} = require('../controllers/social_profile')
 
 
-router.get('/', getSocialProfile)
-router.post('/', createSocialProfile)
-router.patch('/:uuid', updateSocialProfile)
-router.delete('/:uuid', deleteSocialProfile)
+router.route('/').get(getAllSocialProfile).post(createSocialProfile)
+router.route('/uuid').get(getSocialProfile).patch(updateSocialProfile).delete(deleteSocialProfile)
 
 
 module.exports = router;

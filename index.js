@@ -1,3 +1,5 @@
+require('dotenv').config()
+const connectDB = require('./db/connect')
 const express = require('express');
 const app = express();
 const morgan = require('morgan')
@@ -10,6 +12,7 @@ const profileLinksRouter = require('./routes/profile_link')
 
 
 app.use(morgan('tiny'))
+app.use(express.json())
 app.use('/api/v1/address', addressRouter)
 app.use('/api/v1/token', tokenRouter)
 app.use('/api/v1/users', userRouter)
@@ -22,9 +25,16 @@ app.get('/', (req, res) => {
     res.send("<h1>API Docs</h1><a href='https://github.com/tnbCrow/Crypto-Profile-Dot-Link#api-endpoints'>Docs</a>")
 })
 
+const port = process.env.PORT || 3000
 
-app.listen(3000, () => {
-    console.log("express listening on port 3000...")
-})
+const start = async() => {
+    try {
+        await connectDB(process.env.MONGO_URI)
+        app.listen(port, () => console.log(`Server running on port ${port}`))
+    } catch (error) {
+        console.log(error)
+    }
+}
 
+start();
 module.exports = app;

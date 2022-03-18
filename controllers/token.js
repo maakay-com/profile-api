@@ -1,7 +1,10 @@
 const { tokens } = require('../data')
+const Token = require('../models/Token')
 
-const gettoken = (req, res) => {
+
+const getAllToken = async (req, res) => {
+    const tokens = await Token.find({})
     return res.json(tokens)
 }
 
-module.exports = { gettoken }
+module.exports = { getAllToken }

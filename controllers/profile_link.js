@@ -2,6 +2,10 @@
 const { profile_links } = require('../data')
 
 
+const getAllProfileLink = (req, res) => {
+    res.json(profile_links)
+}
+
 const getProfileLink = (req, res) => {
     res.json(profile_links)
 }
@@ -22,6 +26,7 @@ const deleteProfileLink = (req, res) => {
 
 
 module.exports = {
+    getAllProfileLink,
     getProfileLink,
     createProfileLink,
     updateProfileLink,

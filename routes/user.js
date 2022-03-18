@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const { getUser } = require('../controllers/user')
+const { getOrCreateUser } = require('../controllers/user')
 
 
-router.get('/:account_number', getUser)
+router.post('/', getOrCreateUser)
 
 
 module.exports = router;

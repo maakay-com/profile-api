@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const { getProfileLink, createProfileLink, updateProfileLink, deleteProfileLink } = require('../controllers/profile_link')
+const {
+    getAllProfileLink,
+    getProfileLink,
+    createProfileLink,
+    updateProfileLink,
+    deleteProfileLink
+} = require('../controllers/profile_link')
 
 
-router.get('/', getProfileLink)
-router.post('/', createProfileLink)
-router.patch('/:uuid', updateProfileLink)
-router.delete('/:uuid', deleteProfileLink)
+router.route('/').get(getAllProfileLink).post(createProfileLink)
+router.route('/:uuid').get(getProfileLink).patch(updateProfileLink).delete(deleteProfileLink)
 
 
 module.exports = router;
