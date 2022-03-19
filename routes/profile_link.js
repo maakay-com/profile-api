@@ -10,7 +10,7 @@ const {
 
 
 router.route('/').get(getAllProfileLink).post(createProfileLink)
-router.route('/:uuid').get(getProfileLink).patch(updateProfileLink).delete(deleteProfileLink)
+router.route('/:id').get(getProfileLink).patch(updateProfileLink).delete(deleteProfileLink)
 
 
 module.exports = router;

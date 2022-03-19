@@ -10,7 +10,7 @@ const {
 
 
 router.route('/').get(getAllSocialProfile).post(createSocialProfile)
-router.route('/uuid').get(getSocialProfile).patch(updateSocialProfile).delete(deleteSocialProfile)
+router.route('/id').get(getSocialProfile).patch(updateSocialProfile).delete(deleteSocialProfile)
 
 
 module.exports = router;

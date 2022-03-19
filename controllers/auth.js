@@ -1,7 +1,7 @@
 require('dotenv').config()
 const User = require('../models/User')
 const jwt = require("jsonwebtoken")
-const { verifySignature } = require('../utils/verify_signature')
+const { Account } = require('@commandokoala/thenewboston')
 const generateNonce = require('../utils/generate_nonce');
 
 
@@ -33,7 +33,7 @@ const authUser = async (req, res) => {
 
         const message = `Signing my maakay.com nonce: ${user.nonce}`
 
-        const isValidSignature = await verifySignature(account_number, message, signature)
+        const isValidSignature = Account.verifySignature(message, signature, account_number)
 
         if (!isValidSignature) {
             return res.json({
