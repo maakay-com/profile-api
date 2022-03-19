@@ -9,6 +9,7 @@ const userRouter = require('./routes/user')
 const profileRouter = require('./routes/profile')
 const socialProfileRouter = require('./routes/social_profile')
 const profileLinksRouter = require('./routes/profile_link')
+const authUserRouter = require('./routes/auth')
 
 
 app.use(morgan('tiny'))
@@ -19,6 +20,7 @@ app.use('/api/v1/users', userRouter)
 app.use('/api/v1/profile', profileRouter)
 app.use('/api/v1/social_profile', socialProfileRouter)
 app.use('/api/v1/profile_link', profileLinksRouter)
+app.use('/api/v1/auth', authUserRouter)
 
 
 app.get('/', (req, res) => {
