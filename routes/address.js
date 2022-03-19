@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const auth = require('../middleware/auth')
 
 const {
     getAllAddress,
@@ -9,9 +10,10 @@ const {
     deleteAddress
 } = require('../controllers/address')
 
-
+router.use('/', auth)
+router.use('/:id', auth)
 router.route('/').get(getAllAddress).post(createAddress)
-router.route('/:uuid').get(getAddress).patch(updateAddress).delete(deleteAddress)
+router.route('/:id').get(getAddress).patch(updateAddress).delete(deleteAddress)
 
 
 module.exports = router;
