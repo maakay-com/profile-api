@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const generateNonce = require('../utils/generate_nonce');
 
 
 const UserSchema = new mongoose.Schema({
@@ -10,7 +11,7 @@ const UserSchema = new mongoose.Schema({
     },
     nonce: {
         type: Number,
-        default: Math.floor(Math.random() * (999999 - 100000) + 100000)
+        default: generateNonce()
     }
 })
 
