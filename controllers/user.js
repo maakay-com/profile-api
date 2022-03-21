@@ -1,5 +1,5 @@
-const { users } = require('../data')
 const User = require('../models/User')
+const getOrCreateProfile = require('../utils/getOrCreateProfile')
 
 
 const getOrCreateUser = async (req, res) => {
@@ -8,14 +8,16 @@ const getOrCreateUser = async (req, res) => {
 
         const account_number = req.body.account_number;
 
-        const userExists = await User.findOne({ account_number: account_number });
+        const user = await User.findOne({ account_number: account_number });
     
-        if (!userExists) {
+        if (!user) {
             const user = await User.create(req.body)
+            await getOrCreateProfile(user._id)
             return res.json(user)
     
         } else {
-            return res.json(userExists)
+            await getOrCreateProfile(user._id)
+            return res.json(user)
         }
 
     } catch (err) {
