@@ -1,9 +1,7 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const { getAllToken } = require('../controllers/token')
+const { getAllToken } = require("../controllers/token");
 
-
-router.get('/', getAllToken)
-
+router.get("/", getAllToken);
 
 module.exports = router;
