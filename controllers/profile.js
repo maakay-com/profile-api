@@ -20,17 +20,39 @@ const getProfile = async (req, res) => {
 }
 
 
-const updateProfile = (req, res) => {
-    const { username } = req.params;
-    const singleUser = profile.find(
-        (user) => user.username === username
-    )
+const updateProfile = async (req, res) => {
 
-    if (!singleUser) {
-        return res.status(404).json({'detail': 'Not Found'})
+    try {
+        const user_id = req.user._id
+        const profile = await Profile.findOne({ user: user_id })
+
+        if ( profile.subscription_type === "IRON" ) {
+
+            const { description, avatar_url } = req.body
+            const newProfile = await Profile.findOneAndUpdate({ user: user_id }, { description: description, avatar_url: avatar_url }, { new: true })
+            res.json(newProfile)
+
+        } else {
+
+            const { username, description, avatar_url } = req.body
+            const profileWithUsernameExists = await Profile.exists({ username: username, user: {$ne: user_id} })
+
+            if (profileWithUsernameExists) {
+                return res.json({
+                    "errors": {},
+                    "_message": "Username Not Available",
+                    "name": "ValidationError",
+                    "message": "Username Not Available: User with `username` already exists."
+                })
+
+            } else {
+                const newProfile = await Profile.findOneAndUpdate({ user: user_id }, { username: username, description: description, avatar_url: avatar_url }, { new: true })
+                res.json(newProfile)
+            }
+        }
+    } catch (err) {
+        return res.json(err)
     }
-
-    return res.json(singleUser)
 }
 
 
