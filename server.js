@@ -1,5 +1,4 @@
-require("./db/connect");
-const app = require("./index");
+const app = require(".");
 
 const port = process.env.PORT || 3000;
 

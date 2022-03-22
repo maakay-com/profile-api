@@ -1,6 +1,7 @@
 const express = require("express");
 const { route } = require("express/lib/application");
 const router = express.Router();
+
 const auth = require("../middleware/auth");
 const { getProfile, updateProfile } = require("../controllers/profile");
 

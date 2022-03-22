@@ -14,6 +14,11 @@ Install Node.js and required packages: `npm install`
 
 Run the server: `npm run dev`
 
+## Running Mongodb locally (docker)
+
+$ docker pull mongo
+$ docker run -d -p 27017:27017 --name example-mongo mongo:latest
+
 ## API Endpoints
 
 `/api/v1/users/:username`: Get account number and nonce assoited with the account number.
