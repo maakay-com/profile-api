@@ -26,57 +26,55 @@ const createAddress = async (req, res) => {
 };
 
 const updateAddress = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const address = await Address.findById(id)
+  try {
+    const { id } = req.params;
+    const address = await Address.findById(id);
 
-        if ( address.user == req.user._id ) {
-            const { address } = req.body
-            const newAddress = await Address.findOneAndUpdate(
-                { _id: id },
-                { address },
-                { new: true }
-            )
-            return res.json(newAddress);
-        } else {
-            return res.json({
-                errors: {},
-                _message: "Unauthorized",
-                name: "AuthorizationError",
-                message: "Unauthorized: User is not authorized to perform this action.",
-              });
-        }
-        
-    } catch (err) {
-        return res.json(err)
+    if (address.user == req.user._id) {
+      const { address } = req.body;
+      const newAddress = await Address.findOneAndUpdate(
+        { _id: id },
+        { address },
+        { new: true }
+      );
+      return res.json(newAddress);
+    } else {
+      return res.json({
+        errors: {},
+        _message: "Unauthorized",
+        name: "AuthorizationError",
+        message: "Unauthorized: User is not authorized to perform this action.",
+      });
     }
+  } catch (err) {
+    return res.json(err);
+  }
 };
 
 const deleteAddress = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const address = await Address.findById(id)
+  try {
+    const { id } = req.params;
+    const address = await Address.findById(id);
 
-        if ( address.user == req.user._id ) {
-            await address.remove()
-            return res.json({
-                errors: {},
-                _message: "Address Deleted Successfully",
-                name: "Success",
-                message: "Address Deleted Successfully.",
-              });
-        } else {
-            return res.json({
-                errors: {},
-                _message: "Unauthorized",
-                name: "AuthorizationError",
-                message: "Unauthorized: User is not authorized to perform this action.",
-              });
-        }
-
-    } catch (err) {
-        return res.json(err)
+    if (address.user == req.user._id) {
+      await address.remove();
+      return res.json({
+        errors: {},
+        _message: "Address Deleted Successfully",
+        name: "Success",
+        message: "Address Deleted Successfully.",
+      });
+    } else {
+      return res.json({
+        errors: {},
+        _message: "Unauthorized",
+        name: "AuthorizationError",
+        message: "Unauthorized: User is not authorized to perform this action.",
+      });
     }
+  } catch (err) {
+    return res.json(err);
+  }
 };
 
 module.exports = {
