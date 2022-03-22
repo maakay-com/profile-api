@@ -52,8 +52,31 @@ const updateAddress = async (req, res) => {
     }
 };
 
-const deleteAddress = (req, res) => {
-  return res.json(address);
+const deleteAddress = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const address = await Address.findById(id)
+
+        if ( address.user == req.user._id ) {
+            await address.remove()
+            return res.json({
+                errors: {},
+                _message: "Address Deleted Successfully",
+                name: "Success",
+                message: "Address Deleted Successfully.",
+              });
+        } else {
+            return res.json({
+                errors: {},
+                _message: "Unauthorized",
+                name: "AuthorizationError",
+                message: "Unauthorized: User is not authorized to perform this action.",
+              });
+        }
+
+    } catch (err) {
+        return res.json(err)
+    }
 };
 
 module.exports = {
