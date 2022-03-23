@@ -5,10 +5,10 @@ const Address = require("../models/Address");
 const getProfile = async (req, res) => {
   try {
     const { username } = req.params;
-    const profile = await Profile.findOne({ username: username });
+    const profile = await Profile.findOne({ username: username }).lean();
 
     if (profile) {
-      var addresses = await Address.find({ user: profile.user });
+      var addresses = await Address.find({ user: profile.user }).lean();
     }
     return res.json({ profile, addresses });
   } catch (err) {
@@ -19,7 +19,7 @@ const getProfile = async (req, res) => {
 const updateProfile = async (req, res) => {
   try {
     const user_id = req.user._id;
-    const profile = await Profile.findOne({ user: user_id });
+    const profile = await Profile.findOne({ user: user_id }).lean();
 
     if (profile.subscriptionType === "IRON") {
       const { description, avatarUrl } = req.body;
@@ -27,7 +27,7 @@ const updateProfile = async (req, res) => {
         { user: user_id },
         { description: description, avatarUrl: avatarUrl },
         { new: true }
-      );
+      ).lean();
       res.json(newProfile);
     } else {
       const { username, description, avatarUrl } = req.body;
@@ -53,7 +53,7 @@ const updateProfile = async (req, res) => {
             avatarUrl: avatarUrl,
           },
           { new: true }
-        );
+        ).lean();
         res.json(newProfile);
       }
     }

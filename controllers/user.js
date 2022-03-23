@@ -5,7 +5,7 @@ const getOrCreateUser = async (req, res) => {
   try {
     const accountNumber = req.body.accountNumber;
 
-    const user = await User.findOne({ accountNumber: accountNumber });
+    const user = await User.findOne({ account_number: account_number }).lean();
 
     if (!user) {
       const user = await User.create(req.body);
