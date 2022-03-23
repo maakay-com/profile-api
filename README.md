@@ -23,7 +23,7 @@ $ docker run -d -p 27017:27017 --name example-mongo mongo:latest
 
 `/api/v1/users/:username`: Get account number and nonce assoited with the account number.
 
-`/api/v1/login`: Login using account_number and signature. Returns JWT.
+`/api/v1/login`: Login using accountNumber and signature. Returns JWT.
 
 `/api/v1/tokens`: Get all supported tokens.
 

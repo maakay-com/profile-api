@@ -1,13 +1,13 @@
 const users = [
   {
     uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
-    account_number:
+    accountNumber:
       "22d0f0047b572a6acb6615f7aae646b0b96ddc58bfd54ed2775f885baeba3d6a",
     nonce: "132324",
   },
   {
     uuid: "dc587541-1e60-4841-ae3-8f7de67d5e9f",
-    account_number:
+    accountNumber:
       "12d0f0047b572a6acb6615f7aae646b0b96ddc58bfd54ed2775f885baeba3d6a",
     nonce: "456436",
   },
@@ -48,8 +48,8 @@ const profile = [
         url: "RandomSite.com",
       },
     ],
-    avatar_url: "https://url_of_the_avatar.com",
-    is_verified: true,
+    avatarUrl: "https://url_of_the_avatar.com",
+    isVerified: true,
     addresses: [
       {
         token: {
@@ -114,8 +114,8 @@ const profile = [
         url: "RandomSite.com",
       },
     ],
-    avatar_url: "https://url_of_the_avatar.com",
-    is_verified: true,
+    avatarUrl: "https://url_of_the_avatar.com",
+    isVerified: true,
     addresses: [
       {
         token: {
@@ -180,8 +180,8 @@ const profile = [
         url: "RandomSite.com",
       },
     ],
-    avatar_url: "https://url_of_the_avatar.com",
-    is_verified: true,
+    avatarUrl: "https://url_of_the_avatar.com",
+    isVerified: true,
     addresses: [
       {
         token: {
