@@ -35,7 +35,10 @@ const updateAddress = async (req, res) => {
       const newAddress = await Address.findOneAndUpdate(
         { _id: id },
         { address },
-        { new: true }
+        {
+            new: true,
+            runValidators: true
+        }
       );
       return res.json(newAddress);
     } else {

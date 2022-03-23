@@ -21,16 +21,16 @@ const updateProfile = async (req, res) => {
     const user_id = req.user._id;
     const profile = await Profile.findOne({ user: user_id }).lean();
 
-    if (profile.subscription_type === "IRON") {
-      const { description, avatar_url } = req.body;
+    if (profile.subscriptionType === "IRON") {
+      const { description, avatarUrl } = req.body;
       const newProfile = await Profile.findOneAndUpdate(
         { user: user_id },
-        { description: description, avatar_url: avatar_url },
+        { description: description, avatarUrl: avatarUrl },
         { new: true }
       ).lean();
       res.json(newProfile);
     } else {
-      const { username, description, avatar_url } = req.body;
+      const { username, description, avatarUrl } = req.body;
       const profileWithUsernameExists = await Profile.exists({
         username: username,
         user: { $ne: user_id },
@@ -50,7 +50,7 @@ const updateProfile = async (req, res) => {
           {
             username: username,
             description: description,
-            avatar_url: avatar_url,
+            avatarUrl: avatarUrl,
           },
           { new: true }
         ).lean();

@@ -3,7 +3,7 @@ const generateNonce = require("../utils/generate_nonce");
 
 const UserSchema = new mongoose.Schema(
   {
-    account_number: {
+    accountNumber: {
       type: String,
       required: true,
       minLength: 64,

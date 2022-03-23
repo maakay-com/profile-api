@@ -7,15 +7,15 @@ const ProfileSchema = mongoose.Schema(
       type: String,
       default: "Awesome description.",
     },
-    avatar_url: {
+    avatarUrl: {
       type: String,
       default: "https://picsum.photos/200",
     },
-    is_verified: {
+    isVerified: {
       type: Boolean,
       default: false,
     },
-    subscription_type: {
+    subscriptionType: {
       type: String,
       enum: ["IRON", "GOLD", "DIAMOND"],
       default: "IRON",

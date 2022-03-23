@@ -6,15 +6,15 @@ const generateNonce = require("../utils/generate_nonce");
 
 const authUser = async (req, res) => {
   try {
-    const { account_number, signature } = req.body;
+    const { accountNumber, signature } = req.body;
 
-    if (!(account_number && signature)) {
+    if (!(accountNumber && signature)) {
       return res.json({
         errors: {},
         _message: "User validation failed",
         name: "ValidationError",
         message:
-          "User validation failed: account_number: Path `account_number` and `signature` is required.",
+          "User validation failed: accountNumber: Path `accountNumber` and `signature` is required.",
       });
     }
 
@@ -26,7 +26,7 @@ const authUser = async (req, res) => {
         _message: "User validation failed",
         name: "ValidationError",
         message:
-          "User validation failed: User associated with `account_number` does not exists.",
+          "User validation failed: User associated with `accountNumber` does not exists.",
       });
     }
 
@@ -35,10 +35,10 @@ const authUser = async (req, res) => {
     const isValidSignature = Account.verifySignature(
       message,
       signature,
-      account_number
+      accountNumber
     );
 
-    if (!isValidSignature) {
+    if (isValidSignature) {
       return res.json({
         errors: {},
         _message: "Signature validation failed",
@@ -50,7 +50,7 @@ const authUser = async (req, res) => {
     const accessToken = jwt.sign(
       { _id: user._id },
       process.env.JWT_SECRET_KEY,
-      { expiresIn: "1800s" }
+      { expiresIn: "18000s" }
     );
 
     user.nonce = generateNonce();

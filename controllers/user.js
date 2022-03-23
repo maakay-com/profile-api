@@ -3,7 +3,7 @@ const getOrCreateProfile = require("../utils/getOrCreateProfile");
 
 const getOrCreateUser = async (req, res) => {
   try {
-    const account_number = req.body.account_number;
+    const accountNumber = req.body.accountNumber;
 
     const user = await User.findOne({ account_number: account_number }).lean();
 
