@@ -4,7 +4,7 @@ const Address = require("../models/Address");
 const getAllAddress = async (req, res) => {
   try {
     const user_id = req.user._id;
-    const addresses = await Address.find({ user: user_id });
+    const addresses = await Address.find({ user: user_id }).lean();
     return res.json(addresses);
   } catch (err) {
     return res.json(err);
@@ -28,7 +28,7 @@ const createAddress = async (req, res) => {
 const updateAddress = async (req, res) => {
   try {
     const { id } = req.params;
-    const address = await Address.findById(id);
+    const address = await Address.findById(id).lean();
 
     if (address.user == req.user._id) {
       const { address } = req.body;
