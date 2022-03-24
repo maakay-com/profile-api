@@ -1,12 +1,15 @@
 const express = require("express");
-const { route } = require("express/lib/application");
 const router = express.Router();
 
 const auth = require("../middleware/auth");
-const { getProfile, updateProfile } = require("../controllers/profile");
+const {
+  getProfile,
+  getPublicProfile,
+  updateProfile,
+} = require("../controllers/profile");
 
-router.route("/:username").get(getProfile);
+router.route("/:username").get(getPublicProfile);
 router.use("/", auth);
-router.route("/").patch(updateProfile);
+router.route("/").get(getProfile).patch(updateProfile);
 
 module.exports = router;

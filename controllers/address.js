@@ -36,8 +36,8 @@ const updateAddress = async (req, res) => {
         { _id: id },
         { address },
         {
-            new: true,
-            runValidators: true
+          new: true,
+          runValidators: true,
         }
       );
       return res.json(newAddress);

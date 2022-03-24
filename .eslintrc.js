@@ -1,14 +1,13 @@
 module.exports = {
-    "plugins": ["jest"],
-    "env": {
-        "node": true,
-        "commonjs": true,
-        "es2021": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaVersion": "latest"
-    },
-    "rules": {
-    }
-}
+  plugins: ["jest"],
+  env: {
+    node: true,
+    commonjs: true,
+    es2021: true,
+  },
+  extends: "eslint:recommended",
+  parserOptions: {
+    ecmaVersion: "latest",
+  },
+  rules: {},
+};

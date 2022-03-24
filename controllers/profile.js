@@ -2,7 +2,7 @@ const { profile } = require("../data");
 const Profile = require("../models/Profile");
 const Address = require("../models/Address");
 
-const getProfile = async (req, res) => {
+const getPublicProfile = async (req, res) => {
   try {
     const { username } = req.params;
     const profile = await Profile.findOne({ username: username }).lean();
@@ -62,7 +62,21 @@ const updateProfile = async (req, res) => {
   }
 };
 
+const getProfile = async (req, res) => {
+  try {
+    const user_id = req.user._id;
+    const profile = await Profile.findOne({ user: user_id }).lean();
+    if (profile) {
+      var addresses = await Address.find({ user: profile.user }).lean();
+    }
+    return res.json({ profile, addresses });
+  } catch (err) {
+    return res.json(err);
+  }
+};
+
 module.exports = {
   getProfile,
+  getPublicProfile,
   updateProfile,
 };

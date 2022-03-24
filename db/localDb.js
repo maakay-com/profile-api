@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
+const mongoose = require("mongoose");
+const { MongoMemoryServer } = require("mongodb-memory-server");
 
 let mongoServer;
 
@@ -19,7 +19,7 @@ const connect = async () => {
   mongoServer = await MongoMemoryServer.create();
 
   const mongoUri = await mongoServer.getUri();
-  await mongoose.connect(mongoUri, opts, err => {
+  await mongoose.connect(mongoUri, opts, (err) => {
     if (err) {
       console.error(err);
     }

@@ -18,7 +18,7 @@ const authUser = async (req, res) => {
       });
     }
 
-    const user = await User.findOne({ account_number }).lean();
+    const user = await User.findOne({ accountNumber });
 
     if (!user) {
       return res.json({
