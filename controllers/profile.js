@@ -1,6 +1,7 @@
-const { profile } = require("../data");
 const Profile = require("../models/Profile");
 const Address = require("../models/Address");
+const SocialProfile = require("../models/SocialProfile");
+const ProfileLink = require("../models/ProfileLink");
 
 const getPublicProfile = async (req, res) => {
   try {
@@ -9,8 +10,14 @@ const getPublicProfile = async (req, res) => {
 
     if (profile) {
       var addresses = await Address.find({ user: profile.user }).lean();
+      var socialProfile = await SocialProfile.findOne({
+        user: profile.user,
+      }).lean();
+      var profileLink = await ProfileLink.findOne({
+        user: profile.user,
+      }).lean();
     }
-    return res.json({ profile, addresses });
+    return res.json({ profile, addresses, socialProfile, profileLink });
   } catch (err) {
     return res.json(err);
   }
@@ -68,8 +75,14 @@ const getProfile = async (req, res) => {
     const profile = await Profile.findOne({ user: user_id }).lean();
     if (profile) {
       var addresses = await Address.find({ user: profile.user }).lean();
+      var socialProfile = await SocialProfile.findOne({
+        user: profile.user,
+      }).lean();
+      var profileLink = await ProfileLink.findOne({
+        user: profile.user,
+      }).lean();
     }
-    return res.json({ profile, addresses });
+    return res.json({ profile, addresses, socialProfile, profileLink });
   } catch (err) {
     return res.json(err);
   }
