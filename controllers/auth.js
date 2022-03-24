@@ -50,7 +50,7 @@ const authUser = async (req, res) => {
     const accessToken = jwt.sign(
       { _id: user._id },
       process.env.JWT_SECRET_KEY,
-      { expiresIn: "18000s" }
+      { expiresIn: "30d" }
     );
 
     user.nonce = generateNonce();
