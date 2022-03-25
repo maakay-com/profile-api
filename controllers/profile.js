@@ -10,10 +10,10 @@ const getPublicProfile = async (req, res) => {
 
     if (profile) {
       var addresses = await Address.find({ user: profile.user }).lean();
-      var socialProfile = await SocialProfile.findOne({
+      var socialProfile = await SocialProfile.find({
         user: profile.user,
       }).lean();
-      var profileLink = await ProfileLink.findOne({
+      var profileLink = await ProfileLink.find({
         user: profile.user,
       }).lean();
     }
@@ -75,10 +75,10 @@ const getProfile = async (req, res) => {
     const profile = await Profile.findOne({ user: user_id }).lean();
     if (profile) {
       var addresses = await Address.find({ user: profile.user }).lean();
-      var socialProfile = await SocialProfile.findOne({
+      var socialProfile = await SocialProfile.find({
         user: profile.user,
       }).lean();
-      var profileLink = await ProfileLink.findOne({
+      var profileLink = await ProfileLink.find({
         user: profile.user,
       }).lean();
     }
