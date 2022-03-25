@@ -8,7 +8,7 @@ const tokenRouter = require("./routes/token");
 const userRouter = require("./routes/user");
 const profileRouter = require("./routes/profile");
 const socialProfileRouter = require("./routes/social_profile");
-const profileLinksRouter = require("./routes/profile_link");
+const profileLinksRouter = require("./routes/profileLink");
 const authUserRouter = require("./routes/auth");
 
 app.use(morgan("tiny"));

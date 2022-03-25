@@ -6,8 +6,10 @@ const {
   createProfileLink,
   updateProfileLink,
   deleteProfileLink,
-} = require("../controllers/profile_link");
+} = require("../controllers/profileLink");
+const auth = require("../middleware/auth");
 
+router.use("/", auth);
 router.route("/").get(getAllProfileLink).post(createProfileLink);
 router
   .route("/:id")

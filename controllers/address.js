@@ -12,22 +12,22 @@ const getAllAddress = async (req, res) => {
 };
 
 const getAddress = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const address = await Address.findById(id).lean();
-        if (address.user == req.user._id) {
-            return res.json(address);
-        } else {
-            return res.json({
-                errors: {},
-                _message: "Unauthorized",
-                name: "AuthorizationError",
-                message: "Unauthorized: User is not authorized to perform this action.",
-              });
-        }
-    } catch (err) {
-        return res.json(err)
+  try {
+    const { id } = req.params;
+    const address = await Address.findById(id).lean();
+    if (address.user == req.user._id) {
+      return res.json(address);
+    } else {
+      return res.json({
+        errors: {},
+        _message: "Unauthorized",
+        name: "AuthorizationError",
+        message: "Unauthorized: User is not authorized to perform this action.",
+      });
     }
+  } catch (err) {
+    return res.json(err);
+  }
 };
 
 const createAddress = async (req, res) => {
