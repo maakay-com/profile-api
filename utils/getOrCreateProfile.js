@@ -15,6 +15,7 @@ const getOrCreateProfile = async (user_id) => {
     var profile = await Profile.create({
       username: randomUsername,
       user: user_id,
+      avatarUrl: `https://avatars.dicebear.com/api/pixel-art/${randomUsername}.svg`
     });
   }
 

@@ -8,8 +8,7 @@ const ProfileSchema = mongoose.Schema(
       default: "Awesome description.",
     },
     avatarUrl: {
-      type: String,
-      default: "https://picsum.photos/200",
+      type: String
     },
     isVerified: {
       type: Boolean,
