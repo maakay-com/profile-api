@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const generateNonce = require("../utils/generate_nonce");
+const generateNonce = require("../utils/generateNonce");
 
 const UserSchema = new mongoose.Schema(
   {
