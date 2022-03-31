@@ -7,7 +7,7 @@ const addressRouter = require("./routes/address");
 const tokenRouter = require("./routes/token");
 const userRouter = require("./routes/user");
 const profileRouter = require("./routes/profile");
-const socialProfileRouter = require("./routes/social_profile");
+const socialProfileRouter = require("./routes/socialProfile");
 const profileLinksRouter = require("./routes/profileLink");
 const authUserRouter = require("./routes/auth");
 

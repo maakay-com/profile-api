@@ -6,7 +6,7 @@ const {
   createSocialProfile,
   updateSocialProfile,
   deleteSocialProfile,
-} = require("../controllers/social_profile");
+} = require("../controllers/socialProfile");
 
 router.route("/").get(getAllSocialProfile).post(createSocialProfile);
 router

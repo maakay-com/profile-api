@@ -18,7 +18,7 @@ const profile = [
     uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
     username: "hussu010",
     description: "This is hussu's profile everyone",
-    social_profile: [
+    socialProfile: [
       {
         social_media: {
           title: "Facebook",
@@ -84,7 +84,7 @@ const profile = [
     uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
     username: "random",
     description: "This is hussu's profile everyone",
-    social_profile: [
+    socialProfile: [
       {
         social_media: {
           title: "Facebook",
@@ -150,7 +150,7 @@ const profile = [
     uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
     username: "random_user",
     description: "This is hussu's profile everyone",
-    social_profile: [
+    socialProfile: [
       {
         social_media: {
           title: "Facebook",
@@ -214,7 +214,7 @@ const profile = [
   },
 ];
 
-social_profile = [
+socialProfile = [
   {
     uuid: "dc587541-1e60-4841-aed3-8f7de67d5e9f",
     social_media: {
@@ -309,6 +309,6 @@ module.exports = {
   tokens,
   address,
   profile,
-  social_profile,
+  socialProfile,
   profile_links,
 };
