@@ -1,10 +1,10 @@
-# Crypto Profile Dot Link
+# Guestbook
 
-Node.js implementation of Crypto-Profile-Dot-Link
+The API serves as an Oracle/Directory for thenewboston account user to attach cross-crypto currencies to their user account.
 
-[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/tnbCrow/Crypto-Profile-Dot-Link.git)
+This serves as a place to verify the address and validity of profiles when trading/exchanging crypto.
 
-Hosted URL: https://w38piy.deta.dev/
+Hosted API: https://w38piy.deta.dev/
 
 ## Getting Started
 
@@ -21,13 +21,13 @@ $ docker run -d -p 27017:27017 --name example-mongo mongo:latest
 
 ## API Endpoints
 
-`/api/v1/users/:username`: Get account number and nonce assoited with the account number.
+`/api/v1/users`: Get account number and nonce assoited with the account number.
 
-`/api/v1/login`: Login using accountNumber and signature. Returns JWT.
+`/api/v1/auth`: Login using accountNumber and signature. Returns JWT.
 
 `/api/v1/tokens`: Get all supported tokens.
 
-`/api/v1/address`: Add crypto address of the user.
+`/api/v1/address`: CRUD crypto address of the user.
 
 `/api/v1/profile/:username`: Get the public profile of the user.
 
