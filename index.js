@@ -1,6 +1,8 @@
 require("dotenv").config();
 require("./db/connect");
 const express = require("express");
+const swaggerUi = require("swagger-ui-express");
+const swaggerDocument = require("./swagger.json");
 const app = express();
 const morgan = require("morgan");
 const addressRouter = require("./routes/address");
@@ -20,11 +22,6 @@ app.use("/api/v1/profile", profileRouter);
 app.use("/api/v1/social_profile", socialProfileRouter);
 app.use("/api/v1/profile_link", profileLinksRouter);
 app.use("/api/v1/auth", authUserRouter);
-
-app.get("/", (req, res) => {
-  res.send(
-    "<h1>API Docs</h1><a href='https://github.com/tnbCrow/Crypto-Profile-Dot-Link#api-endpoints'>Docs</a>"
-  );
-});
+app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 module.exports = app;

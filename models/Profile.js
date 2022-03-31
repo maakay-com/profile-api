@@ -8,7 +8,7 @@ const ProfileSchema = mongoose.Schema(
       default: "Awesome description.",
     },
     avatarUrl: {
-      type: String
+      type: String,
     },
     isVerified: {
       type: Boolean,
