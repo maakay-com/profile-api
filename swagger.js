@@ -5,7 +5,7 @@ const doc = {
     title: "Maakay Profile API",
     description: "API documentation of maakay project.",
   },
-  host: "w38piy.deta.dev/",
+  host: "w38piy.deta.dev",
   schemes: ["https"],
 };
 

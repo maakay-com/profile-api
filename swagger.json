@@ -5,9 +5,9 @@
     "description": "API documentation of maakay project.",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "w38piy.deta.dev",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["https"],
   "securityDefinitions": {
     "jwt": {
       "type": "apiKey",
