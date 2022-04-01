@@ -12,7 +12,7 @@ const profileRouter = require("./routes/profile");
 const socialProfileRouter = require("./routes/socialProfile");
 const profileLinksRouter = require("./routes/profileLink");
 const authUserRouter = require("./routes/auth");
-const scanPaymentRouter = require("./routes/scanPayment")
+const scanTransactionRouter = require("./routes/scanTransaction")
 
 app.use(morgan("tiny"));
 app.use(express.json());
@@ -23,7 +23,7 @@ app.use("/api/v1/profile", profileRouter);
 app.use("/api/v1/social_profile", socialProfileRouter);
 app.use("/api/v1/profile_link", profileLinksRouter);
 app.use("/api/v1/auth", authUserRouter);
-app.use("/api/v1/scan_payment", scanPaymentRouter);
+app.use("/api/v1/scan_transactions", scanTransactionRouter);
 app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 module.exports = app;
