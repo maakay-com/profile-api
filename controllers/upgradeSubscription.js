@@ -1,4 +1,5 @@
 const Profile = require("../models/Profile");
+const { GOLD_TIER_FEE } = require("../constants");
 
 const upgradeSubscription = async (req, res) => {
   try {
@@ -14,12 +15,13 @@ const upgradeSubscription = async (req, res) => {
       });
     }
 
-    if (upgradeTier === "GOLD" || upgradeTier === "DIAMOND") {
+    if (upgradeTier === "GOLD") {
       const user_id = req.user._id;
       const profile = await Profile.findOne({ user: user_id }).lean();
       return res.json({
         accountNumber: process.env.TNBC_ACCOUNT_NUMBER,
-        metadata: `upgradesub_${profile._id}_${upgradeTier}`,
+        metadata: `upgradesub_${profile.uid}_${upgradeTier}`,
+        amount: GOLD_TIER_FEE,
       });
     } else {
       return res.json({

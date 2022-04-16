@@ -69,7 +69,6 @@ const processPayment = async () => {
   });
   for (let i = 0; i < confirmedTransactions.length; i++) {
     let confirmedTransaction = confirmedTransactions[i];
-    console.log(confirmedTransaction);
     const parsedMetadata = confirmedTransaction.metadata.split("_");
 
     if (parsedMetadata[0] == "upgradesub" && parsedMetadata.length >= 3) {
