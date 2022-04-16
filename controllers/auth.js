@@ -1,8 +1,7 @@
-require("dotenv").config();
 const User = require("../models/User");
 const jwt = require("jsonwebtoken");
 const { Account } = require("@commandokoala/thenewboston");
-const generateNonce = require("../utils/generate_nonce");
+const generateNonce = require("../utils/generateNonce");
 
 const authUser = async (req, res) => {
   try {

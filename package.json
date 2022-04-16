@@ -2,7 +2,6 @@
   "name": "crypto-profile-dot-link",
   "version": "1.0.0",
   "description": "Node.js implementation of Crypto-Profile-Dot-Link",
-  "main": "app.js",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
