@@ -1,6 +1,8 @@
 require("dotenv").config();
 const axios = require("axios");
 const Transaction = require("../models/Transaction");
+const { GOLD_TIER_FEE } = require("../constants");
+const Profile = require("../models/Profile");
 
 const scanTNBCTransaction = async () => {
   try {
@@ -61,7 +63,7 @@ const checkConfirmation = async () => {
   }
 };
 
-const upgradeUser = async () => {
+const processPayment = async () => {
   const confirmedTransactions = await Transaction.find({
     confirmationStatus: "CONFIRMED",
     transactionStatus: "NEW",
@@ -69,11 +71,35 @@ const upgradeUser = async () => {
   for (let i = 0; i < confirmedTransactions.length; i++) {
     let confirmedTransaction = confirmedTransactions[i];
     console.log(confirmedTransaction);
+    const parsedMetadata = confirmedTransaction.metadata.split("_");
+
+    if (parsedMetadata[0] == "upgradesub" && parsedMetadata.length >= 3) {
+      const uid = parsedMetadata[1];
+      const tier = parsedMetadata[2];
+
+      if (tier === "GOLD") {
+        if (confirmedTransaction.amount >= GOLD_TIER_FEE) {
+          const profileExists = await Profile.exists({ uid: uid });
+
+          if (profileExists) {
+            const profile = await Profile.findOne({ uid: uid });
+            profile.subscriptionType = "GOLD";
+            await profile.save();
+
+            confirmedTransaction.transactionStatus = "IDENTIFIED";
+            confirmedTransaction.save();
+          }
+        }
+      }
+    } else {
+      confirmedTransaction.transactionStatus = "UNIDENTIFIED";
+      confirmedTransaction.save();
+    }
   }
 };
 
 module.exports = {
   scanTNBCTransaction,
   checkConfirmation,
-  upgradeUser,
+  processPayment,
 };
