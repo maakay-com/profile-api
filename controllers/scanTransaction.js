@@ -5,11 +5,13 @@ const {
 } = require("../utils/tnbcTransactionHandler");
 
 const scanTransaction = async (req, res) => {
-  console.log("Scan Transaction function run..");
   scanTNBCTransaction();
   checkConfirmation();
   processPayment();
-  res.json("hello");
+  res.json({
+    status: "Success",
+    message: "Chain Scan Completed Successfully...",
+  });
 };
 
 module.exports = { scanTransaction };
