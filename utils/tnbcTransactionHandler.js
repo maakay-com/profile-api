@@ -1,4 +1,3 @@
-require("dotenv").config();
 const axios = require("axios");
 const Transaction = require("../models/Transaction");
 const { GOLD_TIER_FEE } = require("../constants");
@@ -7,7 +6,7 @@ const Profile = require("../models/Profile");
 const scanTNBCTransaction = async () => {
   try {
     const response = await axios.get(
-      "http://45.56.92.194/bank_transactions?recipient=22d0f0047b572a6acb6615f7aae646b0b96ddc58bfd54ed2775f885baeba3d6a"
+      `http://${process.env.BANK_URL}/bank_transactions?recipient=${process.env.TNBC_ACCOUNT_NUMBER}`
     );
     if (response.status === 200) {
       for (let i = 0; i < response.data.results.length; i++) {
@@ -48,7 +47,7 @@ const checkConfirmation = async () => {
       let unconfirmedTransaction = unconfirmedTransactions[i];
       let transactionConfirmationResponse = await axios({
         method: "GET",
-        url: `http://45.56.92.194/confirmation_blocks?block__signature=${unconfirmedTransaction.transactionHash}`,
+        url: `http://${process.env.BANK_URL}/confirmation_blocks?block__signature=${unconfirmedTransaction.transactionHash}`,
         validateStatus: () => true,
       });
       if (transactionConfirmationResponse.status == 200) {

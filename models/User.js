@@ -14,10 +14,6 @@ const UserSchema = new mongoose.Schema(
       type: Number,
       default: generateNonce(),
     },
-    uid: {
-      type: String,
-      default: generateRandomUsername(),
-    },
   },
   {
     timestamps: true,

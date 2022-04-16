@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const generateRandomUsername = require("../utils/generateRandomUsername");
 
 const ProfileSchema = mongoose.Schema(
   {
@@ -22,6 +23,10 @@ const ProfileSchema = mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
+    },
+    uid: {
+      type: String,
+      default: generateRandomUsername(),
     },
   },
   {

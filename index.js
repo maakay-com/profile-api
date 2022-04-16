@@ -12,7 +12,8 @@ const profileRouter = require("./routes/profile");
 const socialProfileRouter = require("./routes/socialProfile");
 const profileLinksRouter = require("./routes/profileLink");
 const authUserRouter = require("./routes/auth");
-const scanTransactionRouter = require("./routes/scanTransaction")
+const scanTransactionRouter = require("./routes/scanTransaction");
+const upgradeSubscriptionRouter = require("./routes/upgradeSubscription");
 
 app.use(morgan("tiny"));
 app.use(express.json());
@@ -24,6 +25,7 @@ app.use("/api/v1/social_profile", socialProfileRouter);
 app.use("/api/v1/profile_link", profileLinksRouter);
 app.use("/api/v1/auth", authUserRouter);
 app.use("/api/v1/scan_transactions", scanTransactionRouter);
+app.use("/api/v1/upgrade_subscription", upgradeSubscriptionRouter);
 app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 module.exports = app;
