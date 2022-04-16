@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const generateNonce = require("../utils/generateNonce");
+const generateRandomUsername = require("../utils/generateRandomUsername");
 
 const UserSchema = new mongoose.Schema(
   {
@@ -12,6 +13,10 @@ const UserSchema = new mongoose.Schema(
     nonce: {
       type: Number,
       default: generateNonce(),
+    },
+    uid: {
+      type: String,
+      default: generateRandomUsername(),
     },
   },
   {
