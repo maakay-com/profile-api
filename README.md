@@ -14,6 +14,14 @@ Install Node.js and required packages: `npm install`
 
 Run the server: `npm run dev`
 
+## Running Project (Docker)
+
+Build the docker image using `docker build -t DOCKER_USERNAME/maakay-profile-api:0.0 .`
+
+Run the docker image using `docker run -p 3000:3000 DOCKER_USERNAME/maakay-profile-api:0.0`
+
+The APIs are now available on `http://localhost:3000/`.
+
 ## Running Mongodb locally (docker)
 
 $ docker pull mongo

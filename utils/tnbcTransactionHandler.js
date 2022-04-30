@@ -43,6 +43,7 @@ const checkConfirmation = async () => {
         $gte: scanTransactionUntil,
       },
     });
+
     for (let i = 0; i < unconfirmedTransactions.length; i++) {
       let unconfirmedTransaction = unconfirmedTransactions[i];
       let transactionConfirmationResponse = await axios({
@@ -50,6 +51,7 @@ const checkConfirmation = async () => {
         url: `http://${process.env.BANK_URL}/confirmation_blocks?block__signature=${unconfirmedTransaction.transactionHash}`,
         validateStatus: () => true,
       });
+
       if (transactionConfirmationResponse.status == 200) {
         if (transactionConfirmationResponse.data.count > 0) {
           unconfirmedTransaction.confirmationStatus = "CONFIRMED";
@@ -67,6 +69,7 @@ const processPayment = async () => {
     confirmationStatus: "CONFIRMED",
     transactionStatus: "NEW",
   });
+
   for (let i = 0; i < confirmedTransactions.length; i++) {
     let confirmedTransaction = confirmedTransactions[i];
     const parsedMetadata = confirmedTransaction.metadata.split("_");
